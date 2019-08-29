@@ -2,7 +2,6 @@ __author__ = "Owen Corcoran"
 __copyright__ = "Copyright 2019"
 __version__ = "0.0.1"
 __maintainer__ = "Owen Corcoran"
-__email__ = "cyperplex@gmail.com"
 __information__ = "Simple script to backup files to S3 using IAM, S3 Bucket. This will require the presence of an IAM account, S3 bucket with associated access policy and role assigned to the iam user to write data"
 
 import json, boto3, logging, time, os
