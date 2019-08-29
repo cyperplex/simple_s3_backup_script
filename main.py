@@ -58,9 +58,6 @@ def upload_s3(config_dictionary, path, bucket_suffix):
 
 if __name__ == '__main__':
    # Try call the Main function to create objects
-   if __name__ == '__main__':
-
     configuration = read_json_config('config.json')
     #print("Loading Configuration", json.dumps(configuration, indent=4))
-
     upload_s3(configuration,r"C:\testFolder", "pictures")
