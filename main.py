@@ -5,7 +5,7 @@ __maintainer__ = "Owen Corcoran"
 __email__ = "cyperplex@gmail.com"
 __information__ = "Simple script to backup files to S3 using IAM, S3 Bucket. This will require the presence of an IAM account, S3 bucket with associated access policy and role assigned to the iam user to write data"
 
-import json, boto3, logging, time, os
+import json, boto3, logging, time, os, glob
 from botocore.exceptions import ClientError
 
 config_dictionary = {}
@@ -58,9 +58,11 @@ def upload_s3(config_dictionary, path, bucket_suffix):
 
 if __name__ == '__main__':
    # Try call the Main function to create objects
-   if __name__ == '__main__':
-
     configuration = read_json_config('config.json')
-    #print("Loading Configuration", json.dumps(configuration, indent=4))
-
-    upload_s3(configuration,r"C:\testFolder", "pictures")
+    print("Loading Configuration", json.dumps(configuration, indent=4))
+    try:
+        path_1_listing = glob.glob(r'c:/examplefolder/*')
+        for filename in path_1_listing:
+            upload_s3(configuration,filename, "examplefolder")
+    except:
+        print("Error unable to read data source for backup")
